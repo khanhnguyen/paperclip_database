@@ -4,6 +4,8 @@ class <%= migration_class_name %> < ActiveRecord::Migration
     create_table :<%= class_name.underscore %>_<%= attachment.pluralize %> do |t|
       t.integer    :<%= class_name.underscore %>_id
       t.string     :style
+      t.string     :content_type
+      t.string     :file_name
       t.binary     :file_contents
     end
 <% end -%>

@@ -170,6 +170,8 @@ module Paperclip
         @queued_for_write.each do |style, file|
           paperclip_file = instance.send(@paperclip_files).send(:find_or_create_by_style, style.to_s)
           paperclip_file.file_contents = file.read
+          paperclip_file.file_name = file.original_filename
+          paperclip_file.content_type = file.content_type
           paperclip_file.save!
           instance.reload
         end        
