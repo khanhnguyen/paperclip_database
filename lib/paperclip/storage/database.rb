@@ -161,8 +161,16 @@ module Paperclip
         db_result.first
       end
         
-      def file_contents(style)
+      def file_contents(style='original')
         file_for(style).file_contents
+      end
+
+      def file_name(style='original')
+        file_for(style).file_name
+      end
+
+      def content_type(style='original')
+        file_for(style).content_type
       end
  
       def flush_writes
